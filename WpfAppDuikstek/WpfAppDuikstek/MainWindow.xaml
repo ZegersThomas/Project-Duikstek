@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppDuikstek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" Background="#0688EA">
+        Title="MainWindow" Height="600" Width="1000" MinHeight="200" MinWidth="400" Background="#0688EA">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Button x:Name="btnBewerkDuiksteks"
+                    Content="Bewerk Duiksteks"
+                    Margin="15,15,15,0"
+                    Padding="15,5" Click="btnBewerkDuiksteks_Click"/>
+            <Button x:Name="btnBewerkVissen"
+                    Content="Bewerk vissen"
+                    Margin="15,15,15,0"
+                    Padding="15,5" Click="btnBewerkVissen_Click"/>
+        </StackPanel>
+        <Line X1="0" Y1="0" X2="0" Y2="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}" 
+              Stroke="AliceBlue" StrokeThickness="1" 
+              HorizontalAlignment="Left" Margin="154,0,0,0"/>
+
+        <Frame x:Name="mainFrame" 
+               NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Window>

@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace WpfAppDuikstek
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PageBewerkVissen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageBewerkVissen : Page
     {
-        public MainWindow()
+        public PageBewerkVissen()
         {
             InitializeComponent();
-        }
-
-        private void btnBewerkDuiksteks_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Navigate(new PageBewerkDuiksteks());
-        }
-
-        private void btnBewerkVissen_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Navigate(new PageBewerkVissen());
         }
     }
 }

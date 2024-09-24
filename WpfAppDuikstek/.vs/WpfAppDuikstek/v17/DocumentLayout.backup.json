@@ -7,7 +7,15 @@
       "RelativeMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|solutionrelative:wpfappduikstek\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|c:\\users\\thoma\\desktop\\school\\mbo_software_developer\\fase 1\\project-duikstek\\wpfappduikstek\\wpfappduikstek\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|c:\\users\\thoma\\desktop\\school\\mbo_software_developer\\fase 1\\project-duikstek\\wpfappduikstek\\wpfappduikstek\\pagetest2.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|solutionrelative:wpfappduikstek\\pagetest2.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|c:\\users\\thoma\\desktop\\school\\mbo_software_developer\\fase 1\\project-duikstek\\wpfappduikstek\\wpfappduikstek\\pagetest1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|solutionrelative:wpfappduikstek\\pagetest1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\wpfappduikstek\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DFACFFC-5F09-452B-A6E0-17B85442E008}|WpfAppDuikstek\\WpfAppDuikstek.csproj|solutionrelative:wpfappduikstek\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,8 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PageTest1.xaml",
+              "DocumentMoniker": "C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\WpfAppDuikstek\\PageTest1.xaml",
+              "RelativeDocumentMoniker": "WpfAppDuikstek\\PageTest1.xaml",
+              "ToolTip": "C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\WpfAppDuikstek\\PageTest1.xaml",
+              "RelativeToolTip": "WpfAppDuikstek\\PageTest1.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-24T09:57:07.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PageTest2.xaml",
+              "DocumentMoniker": "C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\WpfAppDuikstek\\PageTest2.xaml",
+              "RelativeDocumentMoniker": "WpfAppDuikstek\\PageTest2.xaml",
+              "ToolTip": "C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\WpfAppDuikstek\\PageTest2.xaml",
+              "RelativeToolTip": "WpfAppDuikstek\\PageTest2.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-24T10:03:57.142Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -34,13 +66,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\WpfAppDuikstek\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfAppDuikstek\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Thoma\\Desktop\\school\\MBO_Software_Developer\\Fase 1\\Project-Duikstek\\WpfAppDuikstek\\WpfAppDuikstek\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfAppDuikstek\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwCIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-23T11:39:22.25Z",
               "EditorCaption": ""
