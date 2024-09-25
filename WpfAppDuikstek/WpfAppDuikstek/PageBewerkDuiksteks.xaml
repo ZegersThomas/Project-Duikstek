@@ -5,10 +5,65 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfAppDuikstek"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageBewerkDuiksteks">
+      d:DesignHeight="600" d:DesignWidth="850"
+      Title="PageBewerkDuiksteks"
+      Background="White">
 
-    <Grid>
-        <Rectangle Fill="#0688EA"/>
+    <Grid Margin="20,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <WrapPanel Grid.Row="0">
+            <RadioButton x:Name="newDuikstek" Content="Nieuwe Duikstek" Margin="5" Checked="newDuikstek_Checked"/>
+            <RadioButton x:Name="existingDuikstek" Margin="5" Checked="existingDuikstek_Checked">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Bestaande Duikstek" Margin="0,0,10,0"/>
+                    <ComboBox x:Name="selectDuikstek" MinWidth="100" IsEnabled="False"/>
+                </StackPanel>
+            </RadioButton>
+        </WrapPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Beschrijving: " FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="tbBeschrijving" Height="100" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Vissen: " FontSize="20" FontWeight="Bold"/>
+            <WrapPanel>
+                <ComboBox HorizontalAlignment="Left" MinWidth="150" Margin="0,5"/>
+                <Button x:Name="btnAddFish" Content="Voeg toe" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnAddFish_Click"/>
+            </WrapPanel>
+            <ListBox x:Name="fishes" MinHeight="50"/>
+            <WrapPanel>
+                <Button x:Name="btnRemoveFish" Content="verwijder" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnRemoveFish_Click"/>
+                <Button x:Name="btnRemoveAllFish" Content="verwijder alle vissen" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnRemoveAllFish_Click"/>
+            </WrapPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Type Water: " FontSize="20" FontWeight="Bold"/>
+            <WrapPanel>
+                <RadioButton x:Name="zoutWater" Content="Zout Water" Margin="5"/>
+                <RadioButton x:Name="zoetWater" Content="Zoet Water" Margin="5"/>
+            </WrapPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <TextBlock Text="Laats Bijgewerkt: " FontSize="20" FontWeight="Bold"/>
+            <DatePicker x:Name="lastUpdated"/>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="5" Margin="0,10">
+            <Button x:Name="btnUpdateDuikstek" Content="Update" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnUpdateDuikstek_Click"/>
+            <Button x:Name="btnRemoveDuikstek" Content="Verwijder" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnRemoveDuikstek_Click"/>
+        </WrapPanel>
     </Grid>
 </Page>

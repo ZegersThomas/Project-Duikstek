@@ -15,14 +15,21 @@ using System.Windows.Shapes;
 
 namespace WpfAppDuikstek
 {
-    /// <summary>
-    /// Interaction logic for PageBewerkVissen.xaml
-    /// </summary>
     public partial class PageBewerkVissen : Page
     {
         public PageBewerkVissen()
         {
             InitializeComponent();
+        }
+
+        private void newFish_Checked(object sender, RoutedEventArgs e)
+        {
+            selectFish.IsEnabled = false;
+        }
+
+        private void existingFish_Checked(object sender, RoutedEventArgs e)
+        {
+            selectFish.IsEnabled = true;
         }
     }
 }

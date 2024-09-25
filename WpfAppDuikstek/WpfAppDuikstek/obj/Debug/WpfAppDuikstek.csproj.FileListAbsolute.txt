@@ -13,7 +13,7 @@ C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\Wpf
 C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\WpfAppDuikstek.csproj.CoreCompileInputs.cache
 C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\WpfAppDuikstek.exe
 C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\WpfAppDuikstek.pdb
-C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageTest1.g.cs
-C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageTest2.g.cs
-C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageTest1.baml
-C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageTest2.baml
+C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageBewerkDuiksteks.g.cs
+C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageBewerkVissen.g.cs
+C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageBewerkDuiksteks.baml
+C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\PageBewerkVissen.baml
