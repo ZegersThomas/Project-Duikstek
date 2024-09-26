@@ -29,12 +29,23 @@ namespace WpfAppDuikstek
         }
 
         //Nieuwe of bestaande duikstek kiezen
+        private void loadDiveLocations()
+        {
+            List<string> diveLocations = new List<string>(diveLocationsDb.getAllDivingLocations());
+
+            foreach (String name in diveLocations)
+            {
+                selectDiveLocation.Items.Add(name);
+            }
+        }
+
         private void newDiveLocation_Checked(object sender, RoutedEventArgs e)
         {
             selectDiveLocation.IsEnabled = false;
             btnAddDiveLocation.Visibility = Visibility.Visible;
             btnUpdateDiveLocation.Visibility = Visibility.Collapsed;
             tbName.IsEnabled = true;
+            clearInfo();
             enableInteractions();
         }
 
@@ -45,6 +56,11 @@ namespace WpfAppDuikstek
             btnUpdateDiveLocation.Visibility = Visibility.Visible;
             tbName.IsEnabled = false;
             enableInteractions();
+            setinfo();
+        }
+        private void selectDiveLocation_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            setinfo();
         }
 
         private void enableInteractions()
@@ -63,14 +79,57 @@ namespace WpfAppDuikstek
             btnRemoveDiveLocation.IsEnabled = true;
         }
 
-        private void loadDiveLocations()
+        private void setinfo()
         {
-            List<string> diveLocations = new List<string>(diveLocationsDb.getAllDivingLocations());
+            String diveLocationName;
 
-            foreach (String name in diveLocations)
+            if (selectDiveLocation.SelectedItem != null)
             {
-                selectDiveLocation.Items.Add(name);
+                diveLocationName = selectDiveLocation.SelectedItem.ToString();
             }
+            else 
+            { 
+                return;
+            }
+
+            tbName.Text = diveLocationName;
+            tbDescription.Text = diveLocationsDb.getDiveLocationInfo(diveLocationName, "description");
+
+            lbFishes.Items.Clear();
+            List<string> fishes = new List<string>(diveLocationsDb.getFishesForDiveLocation(diveLocationName));
+            foreach (String fish in fishes)
+            {
+                lbFishes.Items.Add(fish);
+            }
+
+            String waterType = diveLocationsDb.getDiveLocationInfo(diveLocationName, "water_type");
+            switch (waterType)
+            {
+                case "Zout":
+                    saltwater.IsChecked = true;
+                    break;
+                case "Zoet":
+                    freshwater.IsChecked = true;
+                    break;
+                case "anders":
+                    other.IsChecked = true;
+                    break;
+                default:
+                    break;
+            }
+
+            lastUpdated.Text = diveLocationsDb.getDiveLocationInfo(diveLocationName, "last_updated");
+        }
+
+        private void clearInfo()
+        {
+            tbName.Text = "";
+            tbDescription.Text = "";
+            lbFishes.Items.Clear();
+            saltwater.IsChecked = false;
+            freshwater.IsChecked = false;
+            other.IsChecked = false;
+            lastUpdated.Text = "";
         }
 
         //Vissen aan een duikstek toevoegen of verwijderen
@@ -89,7 +148,7 @@ namespace WpfAppDuikstek
             if(cmbFishes.SelectedItem != null)
             {
                 string fishName = cmbFishes.SelectedItem.ToString();
-                fishes.Items.Add(fishName);
+                lbFishes.Items.Add(fishName);
             }
             else
             {
@@ -99,9 +158,9 @@ namespace WpfAppDuikstek
 
         private void btnRemoveFish_Click(object sender, RoutedEventArgs e)
         {
-            if (fishes.SelectedItem != null)
+            if (lbFishes.SelectedItem != null)
             {
-                fishes.Items.Remove(fishes.SelectedItem);
+                lbFishes.Items.Remove(lbFishes.SelectedItem);
             }
             else
             {
@@ -118,14 +177,15 @@ namespace WpfAppDuikstek
 
             if (result == MessageBoxResult.Yes)
             {
-                fishes.Items.Clear();
+                lbFishes.Items.Clear();
             }
         }
 
         //Knoppen om de duikstek toe te voegen/updaten of te verwijderen
         private void btnAddDiveLocation_Click(object sender, RoutedEventArgs e)
         {
-
+            diveLocationsDb.addDiveLocation(tbName.Text, tbDescription.Text, (DateTime)lastUpdated.SelectedDate, getWaterType());
+            clearInfo();
         }
 
         private void btnUpdateDiveLocation_Click(object sender, RoutedEventArgs e)
@@ -138,6 +198,22 @@ namespace WpfAppDuikstek
 
         }
 
-        
+        private String getWaterType()
+        {
+            if (saltwater.IsChecked == true)
+            {
+                return "Zout";
+            }
+            else if (freshwater.IsChecked == true)
+            {
+                return "Zoet";
+            }
+            else
+            {
+                return "anders";
+            }
+        }
+
+
     }
 }

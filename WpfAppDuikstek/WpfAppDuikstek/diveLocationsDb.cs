@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace WpfAppDuikstek
 {
@@ -76,7 +77,93 @@ namespace WpfAppDuikstek
                 return fishes;
             }
         }
-       
-        
+
+        public String getDiveLocationInfo(String diveLocationName, String column)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM divelocations WHERE name = @name", conn);
+                    cmd.Parameters.AddWithValue("@name", diveLocationName);
+                    cmd.ExecuteNonQuery();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    DataRow info = dataTable.Rows[0];
+
+                    return info[column].ToString();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return "";
+            }
+        }
+
+        public List<string> getFishesForDiveLocation(String diveLocationName)
+        {
+            List<string> fishes = new List<string>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT fishes_name FROM divelocations_has_fishes WHERE divelocations_name = @name", conn);
+                    cmd.Parameters.AddWithValue("@name", diveLocationName);
+                    cmd.ExecuteNonQuery();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        fishes.Add(row["fishes_name"].ToString());
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return fishes;
+            }
+        }
+
+        public void addDiveLocation(String diveLocationName, String diveLocationDescription, DateTime diveLocationUpdated, String diveLocationWaterType)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    String quarry = "INSERT INTO `divelocations`(`name`, `description`, `last_updated`, `water_type`) VALUES ('" + diveLocationName + "','" + diveLocationDescription + "','" + diveLocationUpdated + "','" + diveLocationWaterType + "')";
+                    MySqlCommand cmd = new MySqlCommand(quarry, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Duikstek succesvol aangemaakt");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
     }
 }

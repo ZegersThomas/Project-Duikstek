@@ -25,7 +25,7 @@
             <RadioButton x:Name="existingDiveLocation" Margin="5" Checked="existingDiveLocation_Checked">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Bestaande Duikstek" Margin="0,0,10,0"/>
-                    <ComboBox x:Name="selectDiveLocation" MinWidth="100" IsEnabled="False"/>
+                    <ComboBox x:Name="selectDiveLocation" MinWidth="100" IsEnabled="False" SelectionChanged="selectDiveLocation_SelectionChanged"/>
                 </StackPanel>
             </RadioButton>
         </WrapPanel>
@@ -46,7 +46,7 @@
                 <ComboBox x:Name="cmbFishes" HorizontalAlignment="Left" MinWidth="150" Margin="0,5" IsEnabled="False"/>
                 <Button x:Name="btnAddFish" Content="Voeg toe" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnAddFish_Click" IsEnabled="False"/>
             </WrapPanel>
-            <ListBox x:Name="fishes" MinHeight="50"/>
+            <ListBox x:Name="lbFishes" MinHeight="50"/>
             <WrapPanel>
                 <Button x:Name="btnRemoveFish" Content="verwijder" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnRemoveFish_Click" IsEnabled="False"/>
                 <Button x:Name="btnRemoveAllFish" Content="verwijder alle vissen" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnRemoveAllFish_Click" IsEnabled="False"/>
