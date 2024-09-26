@@ -19,26 +19,82 @@ namespace WpfAppDuikstek
 {
     public partial class PageBewerkDuiksteks : Page
     {
+        private diveLocationsDb diveLocationsDb = new diveLocationsDb();
 
         public PageBewerkDuiksteks()
         {
             InitializeComponent();
-            LoadData();
+            loadDiveLocations();
+            LoadFishes();
         }
 
-        private void newDuikstek_Checked(object sender, RoutedEventArgs e)
+        //Nieuwe of bestaande duikstek kiezen
+        private void newDiveLocation_Checked(object sender, RoutedEventArgs e)
         {
-            selectDuikstek.IsEnabled = false;
+            selectDiveLocation.IsEnabled = false;
+            btnAddDiveLocation.Visibility = Visibility.Visible;
+            btnUpdateDiveLocation.Visibility = Visibility.Collapsed;
+            tbName.IsEnabled = true;
+            enableInteractions();
         }
 
-        private void existingDuikstek_Checked(object sender, RoutedEventArgs e)
+        private void existingDiveLocation_Checked(object sender, RoutedEventArgs e)
         {
-            selectDuikstek.IsEnabled = true;
+            selectDiveLocation.IsEnabled = true;
+            btnAddDiveLocation.Visibility = Visibility.Collapsed;
+            btnUpdateDiveLocation.Visibility = Visibility.Visible;
+            tbName.IsEnabled = false;
+            enableInteractions();
+        }
+
+        private void enableInteractions()
+        {
+            tbDescription.IsEnabled = true;
+            cmbFishes.IsEnabled = true;
+            btnAddFish.IsEnabled = true;
+            btnRemoveFish.IsEnabled = true;
+            btnRemoveAllFish.IsEnabled = true;
+            saltwater.IsEnabled = true;
+            freshwater.IsEnabled = true;
+            other.IsEnabled = true;
+            lastUpdated.IsEnabled = true;
+            btnAddDiveLocation.IsEnabled = true;
+            btnUpdateDiveLocation.IsEnabled = true;
+            btnRemoveDiveLocation.IsEnabled = true;
+        }
+
+        private void loadDiveLocations()
+        {
+            List<string> diveLocations = new List<string>(diveLocationsDb.getAllDivingLocations());
+
+            foreach (String name in diveLocations)
+            {
+                selectDiveLocation.Items.Add(name);
+            }
+        }
+
+        //Vissen aan een duikstek toevoegen of verwijderen
+        private void LoadFishes()
+        {
+            List<string> fishNames = new List<string>(diveLocationsDb.getAllFishNames());
+
+            foreach (String name in fishNames)
+            {
+                cmbFishes.Items.Add(name);
+            }
         }
 
         private void btnAddFish_Click(object sender, RoutedEventArgs e)
         {
-            fishes.Items.Add("Test Vis");
+            if(cmbFishes.SelectedItem != null)
+            {
+                string fishName = cmbFishes.SelectedItem.ToString();
+                fishes.Items.Add(fishName);
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een vis");
+            }
         }
 
         private void btnRemoveFish_Click(object sender, RoutedEventArgs e)
@@ -66,44 +122,22 @@ namespace WpfAppDuikstek
             }
         }
 
-        private void btnUpdateDuikstek_Click(object sender, RoutedEventArgs e)
+        //Knoppen om de duikstek toe te voegen/updaten of te verwijderen
+        private void btnAddDiveLocation_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnRemoveDuikstek_Click(object sender, RoutedEventArgs e)
+        private void btnUpdateDiveLocation_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void LoadData()
+        private void btnRemoveDiveLocation_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Server=localhost;Database=duikstekdb;Uid=root;Pwd=;";
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT naam FROM vissen", conn);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    foreach (DataRow row in dataTable.Rows)
-                    {
-                        fishes.Items.Add(row["naam"].ToString());
-                    }
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
-                }
-            }
         }
+
+        
     }
 }
