@@ -71,7 +71,7 @@
         <WrapPanel Grid.Row="6" Margin="0,10">
             <Button x:Name="btnAddDiveLocation" Content="Voeg Toe" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnAddDiveLocation_Click" IsEnabled="False"/>
             <Button x:Name="btnUpdateDiveLocation" Content="Update" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnUpdateDiveLocation_Click" Visibility="Collapsed" IsEnabled="False"/>
-            <Button x:Name="btnRemoveDiveLocation" Content="Verwijder" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnRemoveDiveLocation_Click" IsEnabled="False"/>
+            <Button x:Name="btnRemoveDiveLocation" Content="Verwijder" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnRemoveDiveLocation_Click" Visibility="Collapsed" IsEnabled="False"/>
         </WrapPanel>
     </Grid>
 </Page>

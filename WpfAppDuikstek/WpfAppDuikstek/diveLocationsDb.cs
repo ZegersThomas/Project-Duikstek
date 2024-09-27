@@ -165,5 +165,31 @@ namespace WpfAppDuikstek
                 }
             }
         }
+
+        public void deleteDiveLocation(String diveLocationName)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    String quarry = "DELETE FROM divelocations WHERE name='" + diveLocationName + "'";
+                    MySqlCommand cmd = new MySqlCommand(quarry, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Duikstek succesvol verwijderd");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+
+
     }
 }

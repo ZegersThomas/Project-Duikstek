@@ -20,6 +20,7 @@ namespace WpfAppDuikstek
     public partial class PageBewerkDuiksteks : Page
     {
         private diveLocationsDb diveLocationsDb = new diveLocationsDb();
+        private String diveLocationName;
 
         public PageBewerkDuiksteks()
         {
@@ -31,6 +32,7 @@ namespace WpfAppDuikstek
         //Nieuwe of bestaande duikstek kiezen
         private void loadDiveLocations()
         {
+            selectDiveLocation.Items.Clear();
             List<string> diveLocations = new List<string>(diveLocationsDb.getAllDivingLocations());
 
             foreach (String name in diveLocations)
@@ -44,6 +46,7 @@ namespace WpfAppDuikstek
             selectDiveLocation.IsEnabled = false;
             btnAddDiveLocation.Visibility = Visibility.Visible;
             btnUpdateDiveLocation.Visibility = Visibility.Collapsed;
+            btnRemoveDiveLocation.Visibility = Visibility.Collapsed;
             tbName.IsEnabled = true;
             clearInfo();
             enableInteractions();
@@ -54,6 +57,7 @@ namespace WpfAppDuikstek
             selectDiveLocation.IsEnabled = true;
             btnAddDiveLocation.Visibility = Visibility.Collapsed;
             btnUpdateDiveLocation.Visibility = Visibility.Visible;
+            btnRemoveDiveLocation.Visibility = Visibility.Visible;
             tbName.IsEnabled = false;
             enableInteractions();
             setinfo();
@@ -81,8 +85,6 @@ namespace WpfAppDuikstek
 
         private void setinfo()
         {
-            String diveLocationName;
-
             if (selectDiveLocation.SelectedItem != null)
             {
                 diveLocationName = selectDiveLocation.SelectedItem.ToString();
@@ -186,6 +188,8 @@ namespace WpfAppDuikstek
         {
             diveLocationsDb.addDiveLocation(tbName.Text, tbDescription.Text, (DateTime)lastUpdated.SelectedDate, getWaterType());
             clearInfo();
+            loadDiveLocations();
+            clearInfo();
         }
 
         private void btnUpdateDiveLocation_Click(object sender, RoutedEventArgs e)
@@ -195,7 +199,21 @@ namespace WpfAppDuikstek
 
         private void btnRemoveDiveLocation_Click(object sender, RoutedEventArgs e)
         {
+            if (diveLocationName != null)
+            {
+                MessageBoxResult result = MessageBox.Show("Weet je zeker dat je de duikstek wilt verwijderen?",
+                                                      "Bevestiging",
+                                                      MessageBoxButton.YesNo,
+                                                      MessageBoxImage.Warning);
 
+                if (result == MessageBoxResult.Yes)
+                {
+                    diveLocationsDb.deleteDiveLocation(diveLocationName);
+                }
+
+                loadDiveLocations();
+                clearInfo();
+            }
         }
 
         private String getWaterType()
