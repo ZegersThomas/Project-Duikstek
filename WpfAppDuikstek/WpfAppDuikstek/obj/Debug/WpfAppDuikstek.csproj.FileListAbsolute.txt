@@ -50,3 +50,5 @@ C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\Wpf
 C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\WpfAppDu.521F58C2.Up2Date
+C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\bin\Debug\assets\duikIcon.jpg
+C:\Users\Thoma\Desktop\school\MBO_Software_Developer\Fase 1\Project-Duikstek\WpfAppDuikstek\WpfAppDuikstek\obj\Debug\WpfAppDuikstek_Content.g.cs

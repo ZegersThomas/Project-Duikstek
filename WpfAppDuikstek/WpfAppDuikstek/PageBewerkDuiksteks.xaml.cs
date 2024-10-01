@@ -21,6 +21,7 @@ namespace WpfAppDuikstek
     {
         private diveLocationsDb diveLocationsDb = new diveLocationsDb();
         private String diveLocationName;
+        private List<string> fishes;
 
         public PageBewerkDuiksteks()
         {
@@ -48,6 +49,7 @@ namespace WpfAppDuikstek
             btnUpdateDiveLocation.Visibility = Visibility.Collapsed;
             btnRemoveDiveLocation.Visibility = Visibility.Collapsed;
             tbName.IsEnabled = true;
+            fishes = new List<string>();
             clearInfo();
             enableInteractions();
         }
@@ -98,7 +100,7 @@ namespace WpfAppDuikstek
             tbDescription.Text = diveLocationsDb.getDiveLocationInfo(diveLocationName, "description");
 
             lbFishes.Items.Clear();
-            List<string> fishes = new List<string>(diveLocationsDb.getFishesForDiveLocation(diveLocationName));
+            fishes = new List<string>(diveLocationsDb.getFishesForDiveLocation(diveLocationName));
             foreach (String fish in fishes)
             {
                 lbFishes.Items.Add(fish);
@@ -186,14 +188,26 @@ namespace WpfAppDuikstek
         //Knoppen om de duikstek toe te voegen/updaten of te verwijderen
         private void btnAddDiveLocation_Click(object sender, RoutedEventArgs e)
         {
-            diveLocationsDb.addDiveLocation(tbName.Text, tbDescription.Text, (DateTime)lastUpdated.SelectedDate, getWaterType());
-            clearInfo();
-            loadDiveLocations();
-            clearInfo();
+            if(checkData())
+            {
+                if (!(checkIfDiveLocationExists(tbName.Text)))
+                {
+                    diveLocationsDb.addDiveLocation(tbName.Text, tbDescription.Text, (DateTime)lastUpdated.SelectedDate, getWaterType());
+                    diveLocationName = tbName.Text;
+                    updateFishes();
+                    loadDiveLocations();
+                    clearInfo();
+                }
+            }
         }
 
         private void btnUpdateDiveLocation_Click(object sender, RoutedEventArgs e)
         {
+            if (checkData())
+            {
+                diveLocationsDb.updateDiveLocation(tbName.Text, tbDescription.Text, (DateTime)lastUpdated.SelectedDate, getWaterType());
+                updateFishes();
+            }
 
         }
 
@@ -208,12 +222,23 @@ namespace WpfAppDuikstek
 
                 if (result == MessageBoxResult.Yes)
                 {
+                    diveLocationsDb.removeAllFishFromDiveLocation(diveLocationName);
                     diveLocationsDb.deleteDiveLocation(diveLocationName);
                 }
 
                 loadDiveLocations();
                 clearInfo();
             }
+        }
+
+        private bool checkData()
+        {
+            if (tbName.Text != "" && tbDescription.Text != "" && (saltwater.IsChecked == true || freshwater.IsChecked == true || other.IsChecked == true) && lastUpdated.SelectedDate != null)
+            {
+                return true;
+            }
+            MessageBox.Show("Vul alle velden in");
+            return false;
         }
 
         private String getWaterType()
@@ -229,6 +254,42 @@ namespace WpfAppDuikstek
             else
             {
                 return "anders";
+            }
+        }
+
+        private bool checkIfDiveLocationExists(String diveLocation)
+        {
+            List<string> diveLocations = new List<string>(diveLocationsDb.getAllDivingLocations());
+
+            foreach (String name in diveLocations)
+            {
+                if (name.ToLower() == diveLocation.ToLower())
+                {
+                    MessageBox.Show("Duikstek bestaat al");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void updateFishes()
+        {
+            List<string> newFishes = new List<string>();
+            foreach (String fish in lbFishes.Items)
+            {
+                newFishes.Add(fish);
+                if (!(fishes.Contains(fish)))
+                {
+                    diveLocationsDb.addFishToDiveLocation(diveLocationName, fish);
+                }
+            }
+
+            foreach (String fish in fishes)
+            {
+                if (!(newFishes.Contains(fish)))
+                {
+                    diveLocationsDb.removeFishFromDiveLocation(diveLocationName, fish);
+                }
             }
         }
 

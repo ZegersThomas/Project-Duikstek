@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="155"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -25,6 +25,9 @@
                     Margin="15,15,15,0"
                     Padding="15,5" Click="btnBewerkVissen_Click"/>
         </StackPanel>
+
+        <Image Source="assets/duikIcon.jpg" VerticalAlignment="Bottom" Margin="0,20"/>
+
         <Line X1="0" Y1="0" X2="0" Y2="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}" 
               Stroke="AliceBlue" StrokeThickness="2" 
               HorizontalAlignment="Left" Margin="154,0,0,0"/>

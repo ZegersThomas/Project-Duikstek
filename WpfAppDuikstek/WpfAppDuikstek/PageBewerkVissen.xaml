@@ -9,15 +9,70 @@
       Title="PageBewerkVissen"
       Background="White">
 
-    <Grid>
-        <WrapPanel>
+    <Grid Margin="20,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <WrapPanel Grid.Row="0">
             <RadioButton x:Name="newFish" Content="Nieuwe Vis" Margin="5" Checked="newFish_Checked"/>
             <RadioButton x:Name="existingFish" Margin="5" Checked="existingFish_Checked" >
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Bestaande Vis" Margin="0,0,10,0"/>
-                    <ComboBox x:Name="selectFish" MinWidth="100" IsEnabled="False"/>
+                    <ComboBox x:Name="selectFish" MinWidth="100" IsEnabled="False" SelectionChanged="selectFish_SelectionChanged"/>
                 </StackPanel>
             </RadioButton>
         </WrapPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Naam: " FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="tbName" Height="30" FontSize="20" IsEnabled="False"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Beschrijving: " FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="tbDescription" Height="100" IsEnabled="False"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Type Water: " FontSize="20" FontWeight="Bold"/>
+            <WrapPanel>
+                <RadioButton x:Name="saltwater" Content="Zout Water" Margin="5" IsEnabled="False"/>
+                <RadioButton x:Name="freshwater" Content="Zoet Water" Margin="5" IsEnabled="False"/>
+                <RadioButton x:Name="other" Content="Anders" Margin="5" IsEnabled="False"/>
+            </WrapPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <TextBlock Text="Kleuren* : " FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="tbColors" Height="30"  IsEnabled="False"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5">
+            <TextBlock Text="Gemmidelde grootte* : " FontSize="20" FontWeight="Bold"/>
+            <TextBox x:Name="tbAvgSize" Height="30"  IsEnabled="False"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6">
+            <TextBlock Text="Laats Bijgewerkt: " FontSize="20" FontWeight="Bold"/>
+            <DatePicker x:Name="lastUpdated" IsEnabled="False"/>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="7" Margin="0,10">
+            <Button x:Name="btnAddFish" Content="Voeg Toe" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnAddFish_Click" IsEnabled="False"/>
+            <Button x:Name="btnUpdateFish" Content="Update" HorizontalAlignment="Left" Margin="0,5" Padding="10,0" Click="btnUpdateFish_Click" Visibility="Collapsed" IsEnabled="False"/>
+            <Button x:Name="btnRemoveFish" Content="Verwijder" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnRemoveFish_Click" Visibility="Collapsed" IsEnabled="False"/>
+        </WrapPanel>
+
+        <TextBlock Grid.Row="8" Text="* niet verplichte velden"/>
+
     </Grid>
 </Page>
