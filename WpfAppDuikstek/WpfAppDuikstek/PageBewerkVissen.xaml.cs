@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -126,6 +127,23 @@ namespace WpfAppDuikstek
             lastUpdated.Text = "";
         }
 
+        //check of grootte alleen getallen zijn
+        private void tbAvgSize_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            double result;
+
+            if(tbAvgSize.Text.Contains(",") && e.Text == ",")
+            {
+                e.Handled = true;
+            }
+
+            if (double.TryParse(e.Text, out result) || e.Text == ",")
+            {
+                return;
+            }
+            e.Handled = true;
+        }
+
         //Knoppen om de vis toe te voegen/updaten of te verwijderen
         private void btnAddFish_Click(object sender, RoutedEventArgs e)
         {
@@ -133,7 +151,7 @@ namespace WpfAppDuikstek
             {
                 if (!(checkIfFishExists(tbName.Text)))
                 {
-                    diveLocationsDb.addFish(tbName.Text, tbDescription.Text, getWaterType(), tbColors.Text, tbAvgSize.Text, (DateTime)lastUpdated.SelectedDate);
+                    diveLocationsDb.addFish(tbName.Text, tbDescription.Text, getWaterType(), tbColors.Text, tbAvgSize.Text.Replace(",", "."), (DateTime)lastUpdated.SelectedDate);
                     loadFishNames();
                     clearInfo();
                 }
@@ -144,7 +162,8 @@ namespace WpfAppDuikstek
         {
             if (checkData())
             {
-                diveLocationsDb.updateFish(tbName.Text, tbDescription.Text, getWaterType(), tbColors.Text, tbAvgSize.Text, (DateTime)lastUpdated.SelectedDate);
+                diveLocationsDb.updateFish(tbName.Text, tbDescription.Text, getWaterType(), tbColors.Text, tbAvgSize.Text.Replace(",", "."), (DateTime)lastUpdated.SelectedDate);
+                setinfo();
             }
         }
 

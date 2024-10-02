@@ -152,7 +152,15 @@ namespace WpfAppDuikstek
             if(cmbFishes.SelectedItem != null)
             {
                 string fishName = cmbFishes.SelectedItem.ToString();
-                lbFishes.Items.Add(fishName);
+
+                if (!(lbFishes.Items.Contains(fishName)))
+                {
+                    lbFishes.Items.Add(fishName);
+                }
+                else
+                {
+                    MessageBox.Show("Deze vis staat al in de lijst");
+                }
             }
             else
             {
