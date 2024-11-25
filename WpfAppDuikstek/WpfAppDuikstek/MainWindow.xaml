@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppDuikstek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" MinHeight="200" MinWidth="500" Background="#0688EA">
+        Title="Duikstek en Vissen aanpassen" Height="600" Width="1000" MinHeight="300" MinWidth="500" Background="#0688EA">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

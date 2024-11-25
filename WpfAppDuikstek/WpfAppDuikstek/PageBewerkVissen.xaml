@@ -33,36 +33,36 @@
         </WrapPanel>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Naam: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Naam: " FontSize="15" FontWeight="Bold"/>
             <TextBox x:Name="tbName" Height="30" FontSize="20" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <TextBlock Text="Beschrijving: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Beschrijving: " FontSize="15" FontWeight="Bold"/>
             <TextBox x:Name="tbDescription" Height="100" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3">
-            <TextBlock Text="Type Water: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Type Water: " FontSize="15" FontWeight="Bold"/>
             <WrapPanel>
                 <RadioButton x:Name="saltwater" Content="Zout Water" Margin="5" IsEnabled="False"/>
                 <RadioButton x:Name="freshwater" Content="Zoet Water" Margin="5" IsEnabled="False"/>
-                <RadioButton x:Name="other" Content="Anders" Margin="5" IsEnabled="False"/>
+                <RadioButton x:Name="other" Content="Anders" Margin="5" IsEnabled="False" FontStyle="Italic"/>
             </WrapPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4">
-            <TextBlock Text="Kleuren* : " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Kleuren* : " FontSize="15" FontWeight="Bold"/>
             <TextBox x:Name="tbColors" Height="30"  IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="5">
-            <TextBlock Text="Gemmidelde grootte (in cm)* : " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Gemmidelde grootte (in cm)* : " FontSize="15" FontWeight="Bold"/>
             <TextBox x:Name="tbAvgSize" Height="30"  IsEnabled="False" PreviewTextInput="tbAvgSize_PreviewTextInput"/>
         </StackPanel>
 
         <StackPanel Grid.Row="6">
-            <TextBlock Text="Laats Bijgewerkt: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Laats Bijgewerkt: " FontSize="15" FontWeight="Bold"/>
             <DatePicker x:Name="lastUpdated" IsEnabled="False"/>
         </StackPanel>
 

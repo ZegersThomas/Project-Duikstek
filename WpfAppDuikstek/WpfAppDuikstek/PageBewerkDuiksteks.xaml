@@ -31,17 +31,17 @@
         </WrapPanel>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Naam: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Naam: " FontSize="15" FontWeight="Bold"/>
             <TextBox x:Name="tbName" Height="30" FontSize="20" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <TextBlock Text="Beschrijving: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Beschrijving: " FontSize="15" FontWeight="Bold"/>
             <TextBox x:Name="tbDescription" Height="100" IsEnabled="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3">
-            <TextBlock Text="Vissen: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Vissen: " FontSize="15" FontWeight="Bold"/>
             <WrapPanel>
                 <ComboBox x:Name="cmbFishes" HorizontalAlignment="Left" MinWidth="150" Margin="0,5" IsEnabled="False"/>
                 <Button x:Name="btnAddFish" Content="Voeg toe" HorizontalAlignment="Left" Margin="10,5" Padding="10,0" Click="btnAddFish_Click" IsEnabled="False"/>
@@ -55,16 +55,16 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4">
-            <TextBlock Text="Type Water: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Type Water: " FontSize="15" FontWeight="Bold"/>
             <WrapPanel>
                 <RadioButton x:Name="saltwater" Content="Zout Water" Margin="5" IsEnabled="False"/>
                 <RadioButton x:Name="freshwater" Content="Zoet Water" Margin="5" IsEnabled="False"/>
-                <RadioButton x:Name="other" Content="Anders" Margin="5" IsEnabled="False"/>
+                <RadioButton x:Name="other" Content="Anders" Margin="5" IsEnabled="False" FontStyle="Italic"/>
             </WrapPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5">
-            <TextBlock Text="Laats Bijgewerkt: " FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Laats Bijgewerkt: " FontSize="15" FontWeight="Bold"/>
             <DatePicker x:Name="lastUpdated" IsEnabled="False"/>
         </StackPanel>
 
